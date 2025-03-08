@@ -4,10 +4,22 @@
     "@typescript-eslint/parser": "^8.26.0",
     "eslint": "^8.57.1",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.0",
+    "commitlint": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0"
   },
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "stylelint": "stylelint '**/*.css' '**/*.scss' '**/*.sass'",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+  "*.js": "eslint --fix",
+  "*.ts": "eslint --fix",
+  "*.css": "stylelint --fix",
+  "*.json": "prettier --write"
   }
 }
