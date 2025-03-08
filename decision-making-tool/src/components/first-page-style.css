@@ -7,3 +7,9 @@
   height: auto;
   gap: 1rem;
 }
+.options-container {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}

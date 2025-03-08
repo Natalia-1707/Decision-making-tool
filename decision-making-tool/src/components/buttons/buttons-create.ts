@@ -8,7 +8,7 @@ export class Button {
       this.button.classList.add('buttons');
     }
   
-   getButton() {
+    getButton(): HTMLButtonElement {
       return this.button;
     }
 }

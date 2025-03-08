@@ -7,7 +7,7 @@ export class Header {
     this.header.classList.add('header');
   }
 
-  getElement() {
+  getElement(): HTMLHeadingElement {
     return this.header;
   }
 }
