@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-. "$(pwd)/.husky/_/husky.sh"

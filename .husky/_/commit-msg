@@ -1,2 +1,0 @@
-#!/bin/sh
-. "$(pwd)/.husky/_/husky.sh"
