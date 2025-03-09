@@ -15,6 +15,10 @@ export class FirstPage {
     this.optionsContainer.classList.add('options-container');
   }
 
+  getContainer(): HTMLDivElement {
+    return this.container;
+  }
+
   addTitle(titleText: string) {
     const title: Header = new Header(titleText);
     this.container.appendChild(title.getElement());
