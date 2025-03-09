@@ -1,41 +1,44 @@
+import { DeleteOptionButton } from './delete-btn';
+
 export class Options {
-    private option: HTMLHeadingElement;
-  
-    constructor() {
-      this.option = document.createElement('div');
-      this.option.classList.add('option-div');
+  private option: HTMLHeadingElement;
+  private deleteButton: HTMLButtonElement;
 
-      const optionId: HTMLDivElement = document.createElement('div');
-      optionId.classList.add('option-id-div');
-      optionId.innerText = '#1';
+  constructor(idNumber: number, deleteHandler: DeleteOptionButton) {
+    this.option = document.createElement('div');
+    this.option.classList.add('option-div');
 
-      const inputTitle: HTMLInputElement = document.createElement('input');
-      inputTitle.type = 'text';
-      inputTitle.placeholder = 'Title';
-      inputTitle.classList.add('option-input-title');
+    const optionId: HTMLDivElement = document.createElement('div');
+    optionId.classList.add('option-id-div');
+    optionId.innerText = `#${idNumber}`;
 
-      const inputWeight: HTMLInputElement = document.createElement('input');
-      inputWeight.type = 'text';
-      inputWeight.placeholder = 'Weight';
-      inputWeight.classList.add('option-input-weight');
+    const inputTitle: HTMLInputElement = document.createElement('input');
+    inputTitle.type = 'text';
+    inputTitle.placeholder = 'Title';
+    inputTitle.classList.add('option-input-title');
 
-      const buttonDelete: HTMLButtonElement = document.createElement('button');
-      buttonDelete.textContent = 'Delete';
-      buttonDelete.classList.add('option-button');
+    const inputWeight: HTMLInputElement = document.createElement('input');
+    inputWeight.type = 'text';
+    inputWeight.placeholder = 'Weight';
+    inputWeight.classList.add('option-input-weight');
 
-    
-      this.option.appendChild(optionId);
-      this.option.appendChild(inputTitle);
-      this.option.appendChild(inputWeight);
-      this.option.appendChild(buttonDelete);
+    this.deleteButton = document.createElement('button');
+    this.deleteButton.textContent = 'Delete';
+    this.deleteButton.classList.add('option-button');
 
-      setTimeout(() => {
-        inputTitle.focus();
-      }, 0);
-    }
-  
-    getElement(): HTMLDivElement {
-      return this.option;
-    }
-  
+    deleteHandler.addEventListenerToButton(this.deleteButton, this.option);
+
+    this.option.appendChild(optionId);
+    this.option.appendChild(inputTitle);
+    this.option.appendChild(inputWeight);
+    this.option.appendChild(this.deleteButton);
+
+    setTimeout(() => {
+      inputTitle.focus();
+    }, 0);
+  }
+
+  getElement(): HTMLDivElement {
+    return this.option;
+  }
 }

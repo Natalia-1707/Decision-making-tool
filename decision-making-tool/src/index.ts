@@ -16,9 +16,11 @@ firstPage.addButton('Save list', 'btn4');
 firstPage.addButton('Load list', 'btn5');
 firstPage.addButton('Start', 'btn6');
 
-const addOptionHandler = new AddOptionButton(firstPage.getOptionsContainer());
+const addOptionHandler = new AddOptionButton(
+  firstPage,
+  firstPage.getOptionsContainer()
+);
 
 addOptionHandler.addEventListenerToButton(addOption);
 
 document.body.appendChild(firstPage['container']);
-
