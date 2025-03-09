@@ -6,7 +6,7 @@ import { DeleteOptionButton } from './options/delete-btn';
 export class FirstPage {
   private container: HTMLDivElement;
   private optionsContainer: HTMLDivElement;
-  private idNumber: number = 1;
+  private currentId: number = 1;
 
   constructor() {
     this.container = document.createElement('div');
@@ -25,7 +25,11 @@ export class FirstPage {
   }
 
   getNextId(): number {
-    return this.optionsContainer.querySelectorAll('.option-div').length + 1;
+    return this.currentId++;
+  }
+
+  resetIdCounter() {
+    this.currentId = 1;
   }
 
   addOption(): void {

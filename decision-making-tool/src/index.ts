@@ -28,7 +28,10 @@ const addOptionHandler = new AddOptionButton(
 
 addOptionHandler.addEventListenerToButton(addOption);
 
-const clearListHandler = new ClearListButton(firstPage.getOptionsContainer());
+const clearListHandler = new ClearListButton(
+  firstPage.getOptionsContainer(),
+  firstPage
+);
 clearListHandler.addEventListenerToButton(clearListButton);
 
 const startButtonHandler = new StartButton(firstPage, secondPage);
