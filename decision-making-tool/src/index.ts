@@ -3,6 +3,7 @@ import './components/first-page-style.css';
 import './components/header/header-styles.css';
 import './components/buttons/buttons-style.css';
 import './components/options/options-style.css';
+import './components/modal/modal-window-style.css';
 
 import { FirstPage } from './components/first-page';
 import { SecondPage } from './components/second-page';
@@ -12,6 +13,7 @@ import { StartButton } from './components/buttons/start-btn';
 
 const firstPage = new FirstPage();
 const secondPage = new SecondPage();
+
 firstPage.addTitle('Decision Making Tool');
 firstPage.addOption();
 const addOption = firstPage.addButton('Add option', 'add-option-btn');

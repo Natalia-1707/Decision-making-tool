@@ -1,7 +1,9 @@
 import { DeleteOptionButton } from './delete-btn';
 
 export class Options {
-  private option: HTMLHeadingElement;
+  public option: HTMLDivElement;
+  public inputTitle: HTMLInputElement;
+  public inputWeight: HTMLInputElement;
   private deleteButton: HTMLButtonElement;
 
   constructor(idNumber: number, deleteHandler: DeleteOptionButton) {
@@ -10,17 +12,17 @@ export class Options {
 
     const optionId: HTMLDivElement = document.createElement('div');
     optionId.classList.add('option-id-div');
-    optionId.innerText = `#${idNumber}`;
+    optionId.textContent = `#${idNumber}`;
 
-    const inputTitle: HTMLInputElement = document.createElement('input');
-    inputTitle.type = 'text';
-    inputTitle.placeholder = 'Title';
-    inputTitle.classList.add('option-input-title');
+    this.inputTitle = document.createElement('input');
+    this.inputTitle.type = 'text';
+    this.inputTitle.placeholder = 'Title';
+    this.inputTitle.classList.add('option-input-title');
 
-    const inputWeight: HTMLInputElement = document.createElement('input');
-    inputWeight.type = 'text';
-    inputWeight.placeholder = 'Weight';
-    inputWeight.classList.add('option-input-weight');
+    this.inputWeight = document.createElement('input');
+    this.inputWeight.type = 'text';
+    this.inputWeight.placeholder = 'Weight';
+    this.inputWeight.classList.add('option-input-weight');
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.textContent = 'Delete';
@@ -29,16 +31,12 @@ export class Options {
     deleteHandler.addEventListenerToButton(this.deleteButton, this.option);
 
     this.option.appendChild(optionId);
-    this.option.appendChild(inputTitle);
-    this.option.appendChild(inputWeight);
+    this.option.appendChild(this.inputTitle);
+    this.option.appendChild(this.inputWeight);
     this.option.appendChild(this.deleteButton);
 
     setTimeout(() => {
-      inputTitle.focus();
+      this.inputTitle.focus();
     }, 0);
-  }
-
-  getElement(): HTMLDivElement {
-    return this.option;
   }
 }

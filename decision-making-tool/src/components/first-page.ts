@@ -7,6 +7,7 @@ export class FirstPage {
   private container: HTMLDivElement;
   private optionsContainer: HTMLDivElement;
   private currentId: number = 1;
+  private optionsList: Options[] = [];
 
   constructor() {
     this.container = document.createElement('div');
@@ -21,7 +22,7 @@ export class FirstPage {
 
   addTitle(titleText: string) {
     const title: Header = new Header(titleText);
-    this.container.appendChild(title.getElement());
+    this.container.appendChild(title.header);
   }
 
   getNextId(): number {
@@ -30,6 +31,7 @@ export class FirstPage {
 
   resetIdCounter() {
     this.currentId = 1;
+    this.optionsList.length = 0;
   }
 
   addOption(): void {
@@ -37,13 +39,14 @@ export class FirstPage {
     const deleteHandler = new DeleteOptionButton(this.optionsContainer);
     const option: Options = new Options(idNumber, deleteHandler);
     this.container.appendChild(this.optionsContainer);
-    this.optionsContainer.appendChild(option.getElement());
+    this.optionsList.push(option); 
+    this.optionsContainer.appendChild(option.option);
   }
 
   addButton(text: string, id: string) {
     const button: Button = new Button(text, id);
-    this.container.appendChild(button.getButton());
-    return button.getButton();
+    this.container.appendChild(button.button);
+    return button.button;
   }
 
   getOptionsContainer(): HTMLDivElement {

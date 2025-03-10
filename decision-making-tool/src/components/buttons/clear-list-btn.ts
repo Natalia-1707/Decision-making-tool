@@ -16,7 +16,9 @@ export class ClearListButton {
   }
 
   deleteAll() {
-    this.optionsContainer.innerHTML = '';
+    while (this.optionsContainer.firstChild) {
+      this.optionsContainer.firstChild.remove();
+    }
     this.firstPage.resetIdCounter();
   }
 }

@@ -1,5 +1,5 @@
 export class Button {
-  private button: HTMLButtonElement;
+  public button: HTMLButtonElement;
 
   constructor(text: string, id: string) {
     this.button = document.createElement('button');

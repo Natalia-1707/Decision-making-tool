@@ -1,5 +1,5 @@
 export class Header {
-  private header: HTMLHeadingElement;
+  public header: HTMLHeadingElement;
 
   constructor(text: string) {
     this.header = document.createElement('h1');
