@@ -1,4 +1,5 @@
 import '../second-page-style.css';
+import { navigateToPage } from '../routes';
 
 export class BackButton {
   private button: HTMLButtonElement;
@@ -14,12 +15,13 @@ export class BackButton {
   }
 
   private addEventListeners(): void {
-    this.button.addEventListener('click', () => this.navigateBack());
+    this.button.addEventListener('click', this.navigateBack.bind(this));
+    console.log('Event listener added to button');
   }
 
   private navigateBack(): void {
-    this.secondPage.style.display = 'none';
-    this.firstPage.style.display = 'flex';
+    console.log('Button clicked, navigating back');
+    navigateToPage('first');
   }
 
   getButton(): HTMLButtonElement {

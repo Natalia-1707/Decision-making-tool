@@ -6,6 +6,7 @@ import './components/buttons/buttons-style.css';
 import './components/options/options-style.css';
 import './components/modal/modal-window-style.css';
 
+import { setPages, navigateToPage, updatePageView } from './components/routes';
 import { FirstPage } from './components/first-page';
 import { SecondPage } from './components/second-page';
 import { AddOptionButton } from './components/buttons/add-option-btn';
@@ -15,6 +16,7 @@ import { StartButton } from './components/buttons/start-btn';
 const firstPage = new FirstPage();
 const secondPage = new SecondPage();
 document.body.appendChild(secondPage.getContainer());
+setPages(firstPage.getContainer(), secondPage.getContainer());
 
 firstPage.addTitle('Decision Making Tool');
 secondPage.addTitle('Decision Making Tool');
@@ -44,3 +46,7 @@ startButtonHandler.addEventListenerToButton(startButton);
 
 document.body.appendChild(firstPage['container']);
 document.body.appendChild(secondPage['container']);
+
+navigateToPage('first');
+updatePageView();
+window.addEventListener('hashchange', updatePageView);
