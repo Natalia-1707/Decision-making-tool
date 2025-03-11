@@ -5,7 +5,7 @@ export class ModalWindow {
   private static readonly messageFirst: string =
     'You must add at least 2 valid options.';
   private static readonly messageSecond: string =
-    'An option is considered valid if its title is not empty and its weight is greater than 0';
+    'An option is considered valid if its title is not empty and its weight is greater than 0.';
 
   constructor() {
     this.modalContainer = document.createElement('div');
@@ -22,7 +22,7 @@ export class ModalWindow {
     );
 
     const content = document.createElement('div');
-    content.classList.add('modal-сontent');
+    content.classList.add('modal-content');
 
     const messageFirstLine = document.createElement('div');
     messageFirstLine.textContent = ModalWindow.messageFirst;
@@ -42,11 +42,11 @@ export class ModalWindow {
   private addEventListeners(): void {
     this.closeButton.addEventListener('click', () => this.close());
     this.modalContainer.addEventListener('click', (event: MouseEvent) => {
-        if (event.target === this.modalContainer) this.close();
-      });
-      document.addEventListener('keydown', (event: KeyboardEvent) => {
-        if (event.key === 'Escape' && this.modalContainer) this.close();
-      });
+      if (event.target === this.modalContainer) this.close();
+    });
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && this.modalContainer) this.close();
+    });
   }
 
   open(): void {
@@ -59,6 +59,7 @@ export class ModalWindow {
     this.modal.style.display = 'none';
     this.modalContainer.style.display = 'none';
     document.body.style.overflow = '';
+    this.modalContainer.remove();
   }
 
   getModal(): HTMLDialogElement {
