@@ -15,8 +15,10 @@ export class AddOptionButton {
 
   addEventListenerToButton(button: HTMLButtonElement) {
     button.addEventListener('click', () => {
-      const deleteHandler = new DeleteOptionButton(this.optionsContainer);
+      const deleteHandler = new DeleteOptionButton(this.firstPage);
       const option = new Options(this.firstPage.getNextId(), deleteHandler);
+      this.optionsContainer.appendChild(option.option);
+      this.firstPage.getOptionsList().push(option);
       this.optionsContainer.appendChild(option.option);
     });
   }

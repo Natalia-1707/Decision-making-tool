@@ -36,10 +36,10 @@ export class FirstPage {
 
   addOption(): void {
     const idNumber = this.getNextId();
-    const deleteHandler = new DeleteOptionButton(this.optionsContainer);
+    const deleteHandler = new DeleteOptionButton(this);
     const option: Options = new Options(idNumber, deleteHandler);
     this.container.appendChild(this.optionsContainer);
-    this.optionsList.push(option); 
+    this.optionsList.push(option);
     this.optionsContainer.appendChild(option.option);
   }
 
@@ -51,5 +51,9 @@ export class FirstPage {
 
   getOptionsContainer(): HTMLDivElement {
     return this.optionsContainer;
+  }
+
+  getOptionsList(): Options[] {
+    return this.optionsList;
   }
 }

@@ -1,8 +1,10 @@
-export class DeleteOptionButton {
-  private optionsContainer: HTMLElement;
+import { FirstPage } from '../first-page';
 
-  constructor(optionsContainer: HTMLElement) {
-    this.optionsContainer = optionsContainer;
+export class DeleteOptionButton {
+  private firstPage: FirstPage;
+
+  constructor(firstPage: FirstPage) {
+    this.firstPage = firstPage;
   }
 
   addEventListenerToButton(
@@ -14,7 +16,12 @@ export class DeleteOptionButton {
     });
   }
 
-  deleteOption(optionElement: HTMLElement) {
+  private deleteOption(optionElement: HTMLElement) {
+    const optionsList = this.firstPage.getOptionsList();
+    this.firstPage.getOptionsList().splice(
+      optionsList.findIndex((o) => o.option === optionElement),
+      1
+    );
     optionElement.remove();
   }
 }

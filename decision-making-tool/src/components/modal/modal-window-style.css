@@ -1,38 +1,41 @@
 .modal-window {
-    display: none;
-    position: absolute;
-    width: auto;
-    height: auto;
-    padding: 1rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: rgb(255 255 204);
-    color:black;
-    border: 0.125rem solid rgb(0, 51, 25);
-    border-radius: 1rem;
-    overflow-y: auto;
-    z-index: 10;
-    box-shadow: rgba(55, 55, 56, 0.5) 0 0 0 500rem;
+  width: auto;
+  height: auto;
+  background-color: rgb(255 255 204);
+  border: 0.125rem solid rgb(0 51 25);
+  box-shadow: rgb(55 55 56 / 50%) 0 0 0 500rem;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: black;
 }
+
 .modal-cancel-btn {
-    position: absolute;
-    top: 0.625rem;
-    right: 0.625rem;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: rgb(0, 51, 25);
-    border: none;
-    background-color: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: rgb(0 51 25);
 }
+
 .modal-cancel-btn i {
-    color: rgb(0, 51, 25);
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+  color: rgb(0 51 25);
 }
+
 .modal-cancel-btn:hover {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }

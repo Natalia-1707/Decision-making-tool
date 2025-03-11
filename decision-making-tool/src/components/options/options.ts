@@ -7,6 +7,7 @@ export class Options {
   private deleteButton: HTMLButtonElement;
 
   constructor(idNumber: number, deleteHandler: DeleteOptionButton) {
+    console.log('Options constructor called');
     this.option = document.createElement('div');
     this.option.classList.add('option-div');
 
@@ -19,10 +20,20 @@ export class Options {
     this.inputTitle.placeholder = 'Title';
     this.inputTitle.classList.add('option-input-title');
 
+    this.inputTitle.addEventListener('input', () => {
+      console.log('Значение заголовка обновлено:', this.inputTitle.value);
+    });
+
     this.inputWeight = document.createElement('input');
-    this.inputWeight.type = 'text';
+    this.inputWeight.type = 'number';
     this.inputWeight.placeholder = 'Weight';
+    this.inputWeight.min = '0';
+    this.inputWeight.step = '0.01';
     this.inputWeight.classList.add('option-input-weight');
+
+    this.inputWeight.addEventListener('input', () => {
+      console.log('Значение веса обновлено:', this.inputWeight.value);
+    });
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.textContent = 'Delete';
@@ -38,5 +49,15 @@ export class Options {
     setTimeout(() => {
       this.inputTitle.focus();
     }, 0);
+  }
+
+  getTitle(): string {
+    const title = this.inputTitle.value.trim();
+    return title;
+  }
+
+  getWeight(): number {
+    const weight = parseFloat(this.inputWeight.value);
+    return weight;
   }
 }

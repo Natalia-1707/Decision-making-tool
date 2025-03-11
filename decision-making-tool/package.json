@@ -1,8 +1,8 @@
 {
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.26.0",
-    "@typescript-eslint/parser": "^8.26.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
     "clean-webpack-plugin": "^4.0.0",
     "commitlint": "^17.0.0",
     "css-loader": "^7.1.2",
@@ -33,5 +33,6 @@
     "*.ts": "eslint --fix",
     "*.css": "stylelint --fix",
     "*.json": "prettier --write"
-  }
+  },
+  "type": "module"
 }
