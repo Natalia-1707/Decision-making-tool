@@ -1,5 +1,6 @@
 import './style.css';
 import './components/first-page-style.css';
+import './components/second-page-style.css';
 import './components/header/header-styles.css';
 import './components/buttons/buttons-style.css';
 import './components/options/options-style.css';
@@ -13,8 +14,10 @@ import { StartButton } from './components/buttons/start-btn';
 
 const firstPage = new FirstPage();
 const secondPage = new SecondPage();
+document.body.appendChild(secondPage.getContainer());
 
 firstPage.addTitle('Decision Making Tool');
+secondPage.addTitle('Decision Making Tool');
 firstPage.addOption();
 const addOption = firstPage.addButton('Add option', 'add-option-btn');
 firstPage.addButton('Paste list', 'btn2');

@@ -1,3 +1,45 @@
 .second-page {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: auto;
+}
+
+.back-button {
+  width: 10%;
+  height: auto;
+  font-family: Kanit, sans-serif;
+  background-color: rgb(0 51 25);
+  transition: all 0.2s ease;
+  box-shadow:
+    4px 4px 8px rgb(0 0 0 / 60%),
+    -4px -4px 8px rgb(255 255 255 / 10%);
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: rgb(255 255 0);
+  border: 0.2rem solid rgb(255 255 0);
+  box-shadow:
+    2px 2px 5px rgb(255 255 0),
+    -2px -2px 5px rgb(255 255 0);
+  transform: translateY(-2px);
+  font-weight: bold;
+  color: rgb(0 51 25);
 }
