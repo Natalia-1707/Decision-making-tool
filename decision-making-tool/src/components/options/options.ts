@@ -7,7 +7,6 @@ export class Options {
   private deleteButton: HTMLButtonElement;
 
   constructor(idNumber: number, deleteHandler: DeleteOptionButton) {
-    console.log('Options constructor called');
     this.option = document.createElement('div');
     this.option.classList.add('option-div');
 
