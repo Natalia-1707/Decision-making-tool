@@ -9,7 +9,7 @@ export class BackButton {
     private firstPage: HTMLElement
   ) {
     this.button = document.createElement('button');
-    this.button.classList.add('back-button');
+    this.button.classList.add('buttons-second-page');
     this.button.textContent = 'Back';
     this.addEventListeners();
   }

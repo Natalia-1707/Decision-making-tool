@@ -17,16 +17,17 @@
   width: 50%;
   height: auto;
 }
+
 .top-buttons-container {
   width: 100%;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
   justify-content: center;
   height: auto;
 }
 
-.back-button {
+.buttons-second-page {
   width: 10%;
   height: auto;
   font-family: Kanit, sans-serif;
@@ -40,15 +41,16 @@
   border-radius: 0.5rem;
   font-size: 1.2rem;
   color: white;
+  transform-origin: center;
 }
 
-.back-button:hover {
+.buttons-second-page:hover {
   background-color: rgb(255 255 0);
   border: 0.2rem solid rgb(255 255 0);
   box-shadow:
     2px 2px 5px rgb(255 255 0),
     -2px -2px 5px rgb(255 255 0);
-  transform: translateY(-2px);
+  transform: scale(1.1);
   font-weight: bold;
   color: rgb(0 51 25);
 }
@@ -59,10 +61,13 @@
   display: flex;
   color: rgb(255 255 0);
   transition: transform 0.2s ease;
+  transform-origin: center;
 }
+
 .sound-btn:hover {
   transform: scale(1.2);
 }
+
 .sound-btn i {
   font-size: 1.5rem;
   color: rgb(255 255 0);
@@ -73,6 +78,7 @@
 .sound-btn i:hover {
   transform: scale(1.2);
 }
+
 .duration-div {
   width: auto;
   height: auto;
@@ -81,10 +87,12 @@
   align-items: center;
   gap: 0.2rem;
 }
+
 .duration-icon {
   font-size: 1.5rem;
   color: rgb(255 255 0);
 }
+
 .input-duration {
   width: 3.5rem;
   height: 1.5rem;
@@ -93,7 +101,29 @@
   padding-bottom: 0.1rem;
   border-radius: 0.5rem;
   font-family: Kanit, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background-color: rgb(255 255 204);
   outline: none;
+}
+
+.input-picked-option {
+  width: 50%;
+  height: auto;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-family: Kanit, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgb(255 255 204);
+  outline: none;
+  text-align: center;
+}
+
+.input-picked-option::placeholder {
+  color: rgb(0 51 25);
+}
+
+.input-picked-option[readonly] {
+  pointer-events: none;
+  color: rgb(0 51 25);
 }

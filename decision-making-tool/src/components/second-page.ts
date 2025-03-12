@@ -1,7 +1,9 @@
 import { Header } from './header/header';
 import { BackButton } from './buttons/back-btn';
 import { SoundButton } from './buttons/sound-btn';
-import { Duration } from './duration';
+import { Duration } from './second-page-options/duration';
+import { PlayButton } from './buttons/play-btn';
+import { PickedOption } from './second-page-options/picked-option';
 
 export class SecondPage {
   private container: HTMLDivElement;
@@ -10,6 +12,8 @@ export class SecondPage {
   private backButton: BackButton;
   private soundButton: SoundButton;
   private duration: Duration;
+  private playButton: PlayButton;
+  private readonly pickedOption: PickedOption;
 
   constructor() {
     this.container = document.createElement('div');
@@ -28,11 +32,17 @@ export class SecondPage {
     this.soundButton = new SoundButton();
     this.topButtonsContainer.appendChild(this.soundButton.getOnButton());
     this.topButtonsContainer.appendChild(this.soundButton.getOffButton());
-    
+
     this.duration = new Duration();
     this.topButtonsContainer.appendChild(this.duration.getDuration());
 
+    this.playButton = new PlayButton();
+
+    this.pickedOption = new PickedOption();
+
     this.buttonsContainer.appendChild(this.topButtonsContainer);
+    this.buttonsContainer.appendChild(this.playButton.getButton());
+    this.buttonsContainer.appendChild(this.pickedOption.getPickedOption());
     this.container.style.display = 'none';
   }
 
@@ -44,7 +54,7 @@ export class SecondPage {
     const title: Header = new Header(titleText);
     this.container.prepend(title.header);
   }
-  
+
   addDuration(titleText: string) {
     const title: Header = new Header(titleText);
     this.container.appendChild(title.header);
