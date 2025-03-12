@@ -43,3 +43,24 @@
   font-weight: bold;
   color: rgb(0 51 25);
 }
+
+.sound-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  color: rgb(255 255 0);
+  transition: transform 0.2s ease;
+}
+.sound-btn:hover {
+  transform: scale(1.2);
+}
+.sound-btn i {
+  font-size: 1.5rem;
+  color: rgb(255 255 0);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.sound-btn i:hover {
+  transform: scale(1.2);
+}

@@ -16,11 +16,9 @@ export class BackButton {
 
   private addEventListeners(): void {
     this.button.addEventListener('click', this.navigateBack.bind(this));
-    console.log('Event listener added to button');
   }
 
   private navigateBack(): void {
-    console.log('Button clicked, navigating back');
     navigateToPage('first');
   }
 

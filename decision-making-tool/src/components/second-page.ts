@@ -1,10 +1,12 @@
 import { Header } from './header/header';
 import { BackButton } from './buttons/back-btn';
+import { SoundButton } from './buttons/sound-btn';
 
 export class SecondPage {
   private container: HTMLDivElement;
   private buttonsContainer: HTMLDivElement;
   private backButton: BackButton;
+  private soundButton: SoundButton;
 
   constructor() {
     this.container = document.createElement('div');
@@ -16,6 +18,11 @@ export class SecondPage {
     this.backButton = new BackButton(this.container, this.container);
     this.buttonsContainer.appendChild(this.backButton.getButton());
     this.container.appendChild(this.buttonsContainer);
+
+    this.soundButton = new SoundButton();
+    this.buttonsContainer.appendChild(this.soundButton.getOnButton());
+    this.buttonsContainer.appendChild(this.soundButton.getOffButton());
+
 
     this.container.style.display = 'none';
   }
