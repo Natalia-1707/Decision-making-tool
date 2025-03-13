@@ -1,12 +1,23 @@
+import { FirstPage } from '../first-page';
 import { DeleteOptionButton } from './delete-btn';
+import { Wheel } from '../second-page-options/wheel';
 
 export class Options {
   public option: HTMLDivElement;
   public inputTitle: HTMLInputElement;
   public inputWeight: HTMLInputElement;
   private deleteButton: HTMLButtonElement;
+  private firstPage: FirstPage;
+  private wheel: Wheel;
 
-  constructor(idNumber: number, deleteHandler: DeleteOptionButton) {
+  constructor(
+    idNumber: number,
+    deleteHandler: DeleteOptionButton,
+    firstPage: FirstPage,
+    wheel: Wheel
+  ) {
+    this.firstPage = firstPage;
+    this.wheel = wheel;
     this.option = document.createElement('div');
     this.option.classList.add('option-div');
 
@@ -20,7 +31,7 @@ export class Options {
     this.inputTitle.classList.add('option-input-title');
 
     this.inputTitle.addEventListener('input', () => {
-      console.log('Значение заголовка обновлено:', this.inputTitle.value);
+      firstPage.updateWheel(wheel);
     });
 
     this.inputWeight = document.createElement('input');
@@ -31,7 +42,7 @@ export class Options {
     this.inputWeight.classList.add('option-input-weight');
 
     this.inputWeight.addEventListener('input', () => {
-      console.log('Значение веса обновлено:', this.inputWeight.value);
+      firstPage.updateWheel(wheel);
     });
 
     this.deleteButton = document.createElement('button');

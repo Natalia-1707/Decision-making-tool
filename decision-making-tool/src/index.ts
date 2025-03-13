@@ -12,15 +12,17 @@ import { SecondPage } from './components/second-page';
 import { AddOptionButton } from './components/buttons/add-option-btn';
 import { ClearListButton } from './components/buttons/clear-list-btn';
 import { StartButton } from './components/buttons/start-btn';
+import { Wheel } from './components/second-page-options/wheel';
 
 const firstPage = new FirstPage();
 const secondPage = new SecondPage();
 document.body.appendChild(secondPage.getContainer());
 setPages(firstPage.getContainer(), secondPage.getContainer());
+const wheel = new Wheel();
 
 firstPage.addTitle('Decision Making Tool');
 secondPage.addTitle('Decision Making Tool');
-firstPage.addOption();
+firstPage.addOption(wheel);
 const addOption = firstPage.addButton('Add option', 'add-option-btn');
 firstPage.addButton('Paste list', 'btn2');
 const clearListButton = firstPage.addButton('Clear list', 'clear-list');
@@ -30,7 +32,8 @@ const startButton = firstPage.addButton('Start', 'start-btn');
 
 const addOptionHandler = new AddOptionButton(
   firstPage,
-  firstPage.getOptionsContainer()
+  firstPage.getOptionsContainer(),
+  wheel
 );
 
 addOptionHandler.addEventListenerToButton(addOption);

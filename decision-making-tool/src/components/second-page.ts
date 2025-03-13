@@ -4,6 +4,7 @@ import { SoundButton } from './buttons/sound-btn';
 import { Duration } from './second-page-options/duration';
 import { PlayButton } from './buttons/play-btn';
 import { PickedOption } from './second-page-options/picked-option';
+import { Wheel } from './second-page-options/wheel';
 
 export class SecondPage {
   private container: HTMLDivElement;
@@ -14,6 +15,7 @@ export class SecondPage {
   private duration: Duration;
   private playButton: PlayButton;
   private readonly pickedOption: PickedOption;
+  private wheel: Wheel;
 
   constructor() {
     this.container = document.createElement('div');
@@ -43,6 +45,10 @@ export class SecondPage {
     this.buttonsContainer.appendChild(this.topButtonsContainer);
     this.buttonsContainer.appendChild(this.playButton.getButton());
     this.buttonsContainer.appendChild(this.pickedOption.getPickedOption());
+
+    this.wheel = new Wheel();
+    this.buttonsContainer.appendChild(this.wheel.getWheel());
+
     this.container.style.display = 'none';
   }
 

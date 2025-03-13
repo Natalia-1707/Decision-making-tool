@@ -22,7 +22,7 @@ export class BackButton {
     navigateToPage('first');
   }
 
-  getButton(): HTMLButtonElement {
+  public getButton(): HTMLButtonElement {
     return this.button;
   }
 }

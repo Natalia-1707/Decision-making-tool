@@ -2,6 +2,7 @@ import { Header } from './header/header';
 import { Button } from './buttons/buttons-create';
 import { Options } from './options/options';
 import { DeleteOptionButton } from './options/delete-btn';
+import { Wheel } from './second-page-options/wheel';
 
 export class FirstPage {
   private container: HTMLDivElement;
@@ -34,14 +35,17 @@ export class FirstPage {
     this.optionsList.length = 0;
   }
 
-  addOption(): void {
+  addOption(wheel: Wheel): void {
     const idNumber = this.getNextId();
     const deleteHandler = new DeleteOptionButton(this);
-    const option: Options = new Options(idNumber, deleteHandler);
+
+    const option: Options = new Options(idNumber, deleteHandler, this, wheel);
+
     this.container.appendChild(this.optionsContainer);
     this.optionsList.push(option);
     this.optionsContainer.appendChild(option.option);
-  }
+}
+
 
   addButton(text: string, id: string) {
     const button: Button = new Button(text, id);
@@ -55,5 +59,15 @@ export class FirstPage {
 
   getOptionsList(): Options[] {
     return this.optionsList;
+  }
+  updateWheel(wheel: Wheel) {
+    const options = this.optionsList
+        .map(option => ({
+            title: option.getTitle(),
+            weight: option.getWeight(),
+        }))
+        .filter(option => option.title !== '' && !isNaN(option.weight) && option.weight > 0);
+
+    wheel.setOptions(options);
   }
 }
