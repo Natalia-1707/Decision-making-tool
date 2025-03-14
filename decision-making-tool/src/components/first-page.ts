@@ -3,18 +3,21 @@ import { Button } from './buttons/buttons-create';
 import { Options } from './options/options';
 import { DeleteOptionButton } from './options/delete-btn';
 import { Wheel } from './second-page-options/wheel';
+import { SecondPage } from './second-page';
 
 export class FirstPage {
   private container: HTMLDivElement;
   private optionsContainer: HTMLDivElement;
   private currentId: number = 1;
   private optionsList: Options[] = [];
+  private secondPage: SecondPage; 
 
-  constructor() {
+  constructor(secondPage: SecondPage) {
     this.container = document.createElement('div');
     this.container.classList.add('container', 'first-page');
     this.optionsContainer = document.createElement('div');
     this.optionsContainer.classList.add('options-container');
+    this.secondPage = secondPage;
   }
 
   getContainer(): HTMLDivElement {
@@ -44,6 +47,8 @@ export class FirstPage {
     this.container.appendChild(this.optionsContainer);
     this.optionsList.push(option);
     this.optionsContainer.appendChild(option.option);
+
+    this.updateWheel(wheel);
 }
 
 
@@ -62,12 +67,12 @@ export class FirstPage {
   }
   updateWheel(wheel: Wheel) {
     const options = this.optionsList
-        .map(option => ({
-            title: option.getTitle(),
-            weight: option.getWeight(),
-        }))
-        .filter(option => option.title !== '' && !isNaN(option.weight) && option.weight > 0);
+      .map(option => ({
+        title: option.getTitle(),
+        weight: option.getWeight(),
+      }))
+      .filter(option => option.title !== '' && !isNaN(option.weight) && option.weight > 0);
 
-    wheel.setOptions(options);
+    this.secondPage.updateWheel(options);
   }
 }

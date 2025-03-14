@@ -30,8 +30,8 @@ export class Options {
     this.inputTitle.placeholder = 'Title';
     this.inputTitle.classList.add('option-input-title');
 
-    this.inputTitle.addEventListener('input', () => {
-      firstPage.updateWheel(wheel);
+    this.inputTitle.addEventListener('blur', () => {
+      firstPage.updateWheel(this.wheel);
     });
 
     this.inputWeight = document.createElement('input');
@@ -41,8 +41,8 @@ export class Options {
     this.inputWeight.step = '0.01';
     this.inputWeight.classList.add('option-input-weight');
 
-    this.inputWeight.addEventListener('input', () => {
-      firstPage.updateWheel(wheel);
+    this.inputWeight.addEventListener('blur', () => {
+      firstPage.updateWheel(this.wheel);
     });
 
     this.deleteButton = document.createElement('button');

@@ -47,7 +47,7 @@ export class SecondPage {
     this.buttonsContainer.appendChild(this.pickedOption.getPickedOption());
 
     this.wheel = new Wheel();
-    this.buttonsContainer.appendChild(this.wheel.getWheel());
+    this.container.appendChild(this.wheel.getWheel());
 
     this.container.style.display = 'none';
   }
@@ -64,5 +64,9 @@ export class SecondPage {
   addDuration(titleText: string) {
     const title: Header = new Header(titleText);
     this.container.appendChild(title.header);
+  }
+  updateWheel(options: { title: string; weight: number }[]): void {
+    this.wheel.setOptions(options);
+    this.wheel.drawWheel();
   }
 }

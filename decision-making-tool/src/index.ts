@@ -14,8 +14,8 @@ import { ClearListButton } from './components/buttons/clear-list-btn';
 import { StartButton } from './components/buttons/start-btn';
 import { Wheel } from './components/second-page-options/wheel';
 
-const firstPage = new FirstPage();
 const secondPage = new SecondPage();
+const firstPage = new FirstPage(secondPage)
 document.body.appendChild(secondPage.getContainer());
 setPages(firstPage.getContainer(), secondPage.getContainer());
 const wheel = new Wheel();
@@ -33,10 +33,9 @@ const startButton = firstPage.addButton('Start', 'start-btn');
 const addOptionHandler = new AddOptionButton(
   firstPage,
   firstPage.getOptionsContainer(),
-  wheel
 );
 
-addOptionHandler.addEventListenerToButton(addOption);
+addOptionHandler.addEventListenerToButton(addOption, wheel);
 
 const clearListHandler = new ClearListButton(
   firstPage.getOptionsContainer(),
