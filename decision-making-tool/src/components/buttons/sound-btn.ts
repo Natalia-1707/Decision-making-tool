@@ -34,6 +34,17 @@ export class SoundButton {
       this.offButton.style.display = 'flex';
     }
   }
+
+  setDisabled(isDisabled: boolean): void {
+    if (isDisabled) {
+      this.onButton.classList.add('disabled');
+      this.offButton.classList.add('disabled');
+    } else {
+      this.onButton.classList.remove('disabled');
+      this.offButton.classList.remove('disabled');
+    }
+  }
+
   getOnButton(): HTMLElement {
     return this.onButton;
   }

@@ -9,6 +9,7 @@ export class Options {
   private deleteButton: HTMLButtonElement;
   private firstPage: FirstPage;
   private wheel: Wheel;
+  private id: number;
 
   constructor(
     idNumber: number,
@@ -16,6 +17,7 @@ export class Options {
     firstPage: FirstPage,
     wheel: Wheel
   ) {
+    this.id = idNumber;
     this.firstPage = firstPage;
     this.wheel = wheel;
     this.option = document.createElement('div');
@@ -59,6 +61,10 @@ export class Options {
     setTimeout(() => {
       this.inputTitle.focus();
     }, 0);
+  }
+
+  getId(): number {
+    return this.id;
   }
 
   getTitle(): string {

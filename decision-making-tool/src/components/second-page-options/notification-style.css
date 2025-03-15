@@ -1,50 +1,49 @@
 .notification-window {
-    width: 20%;
-    height: auto;
-    background-color: rgb(255 255 204);
-    border: 0.125rem solid rgb(0 51 25);
-    position: absolute;
-    z-index: 10;
-    top: 25%;
-    left: 23%;
-    transform: translate(-50%, -50%);
-    overflow-y: auto;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1.2rem;
-    border-radius: 1rem;
-    color: black;
-  }
-  
-  .notification {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.2rem;
-    gap: 1rem;
-    font-family: Kanit, sans-serif;
-    font-size: 1.2rem;
-  }
-  
-  .modal-cancel-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 12%;
-    right: 1.5%;
-    transform: translateY(-50%);
-    font-size: 1.3rem;
-    color: rgb(0 51 25);
-  }
-  
-  .modal-cancel-btn i {
-    font-size: 1.2rem;
-    color: rgb(0 51 25);
-  }
-  
-  .modal-cancel-btn:hover {
-    font-size: 1.5rem;
-  }
-  
+  width: 20%;
+  height: auto;
+  background-color: rgb(255 255 204);
+  border: 0.125rem solid rgb(0 51 25);
+  position: absolute;
+  z-index: 10;
+  top: 25%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  color: black;
+}
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  gap: 1rem;
+  font-family: Kanit, sans-serif;
+  font-size: 1.2rem;
+}
+
+.modal-cancel-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 12%;
+  right: 1.5%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: rgb(0 51 25);
+}
+
+.modal-cancel-btn i {
+  font-size: 1.2rem;
+  color: rgb(0 51 25);
+}
+
+.modal-cancel-btn:hover {
+  font-size: 1.5rem;
+}

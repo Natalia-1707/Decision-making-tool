@@ -36,7 +36,10 @@ export class Wheel {
     }
   }
 
-  public startSpin(duration: number, updatePickedOption: (option: string) => void): void {
+  public startSpin(
+    duration: number,
+    updatePickedOption: (option: string) => void
+  ): void {
     const totalRotation = Math.random() * 360 + 1800;
     const endAngle = totalRotation * (Math.PI / 180);
     const startTime = Date.now();

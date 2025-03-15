@@ -29,6 +29,18 @@ export class Duration {
     this.durationDiv.appendChild(this.inputDuration);
   }
 
+  setDisabled(isDisabled: boolean): void {
+    this.inputDuration.disabled = isDisabled;
+
+    if (isDisabled) {
+      this.durationIcon.style.opacity = '0.5';
+      this.durationIcon.style.pointerEvents = 'none';
+    } else {
+      this.durationIcon.style.opacity = '1';
+      this.durationIcon.style.pointerEvents = 'auto';
+    }
+  }
+
   getDurationValue(): number {
     const value = this.inputDuration.value;
     console.log('Полученное значение из поля ввода: ', value);

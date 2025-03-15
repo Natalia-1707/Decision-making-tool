@@ -79,6 +79,27 @@
   transform: scale(1.2);
 }
 
+.sound-btn.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.buttons-second-page:disabled {
+  background-color: grey;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.buttons-second-page:disabled:hover {
+  background-color: grey;
+  border: none;
+  box-shadow: none;
+  transform: none;
+  font-weight: normal;
+  color: white;
+}
+
 .duration-div {
   width: auto;
   height: auto;
@@ -103,6 +124,12 @@
   font-size: 1.3rem;
   background-color: rgb(255 255 204);
   outline: none;
+}
+
+.input-duration:disabled {
+  background-color: rgb(240 240 240);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .input-picked-option {
