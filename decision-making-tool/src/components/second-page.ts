@@ -38,7 +38,7 @@ export class SecondPage {
     this.duration = new Duration();
     this.topButtonsContainer.appendChild(this.duration.getDuration());
 
-    this.playButton = new PlayButton();
+    this.playButton = new PlayButton(this.duration);
 
     this.pickedOption = new PickedOption();
 

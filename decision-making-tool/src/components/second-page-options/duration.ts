@@ -21,13 +21,18 @@ export class Duration {
     this.inputDuration.min = '5';
     this.inputDuration.max = '30';
 
+    this.inputDuration.addEventListener('input', () => {
+      console.log(this.getDurationValue());
+    });
+
     this.durationDiv.appendChild(this.durationIcon);
     this.durationDiv.appendChild(this.inputDuration);
   }
 
   getDurationValue(): number {
-    const value = parseInt(this.inputDuration.value, 10);
-    return isNaN(value) ? 10 : Math.max(5, Math.min(30, value));
+    const value = this.inputDuration.value;
+    console.log("Полученное значение из поля ввода: ", value);
+    return parseInt(value, 10);
   }
 
   getDuration(): HTMLElement {
