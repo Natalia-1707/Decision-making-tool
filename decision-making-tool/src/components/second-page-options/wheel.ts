@@ -101,6 +101,27 @@ export class Wheel {
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 3;
     ctx.stroke();
+
+    this.drawCursor(centerX, centerY, radius);
+  }
+
+  private drawCursor(centerX: number, centerY: number, radius: number): void {
+    const cursorSize = 40;
+    const cursorX = centerX;
+    const cursorY = centerY - radius - cursorSize / 2;
+
+    this.ctx!.beginPath();
+    this.ctx!.moveTo(cursorX, cursorY + cursorSize);
+    this.ctx!.lineTo(cursorX - cursorSize / 2, cursorY);
+    this.ctx!.lineTo(cursorX + cursorSize / 2, cursorY);
+    this.ctx!.closePath();
+
+    this.ctx!.fillStyle = '#ffffff';
+    this.ctx!.fill();
+
+    this.ctx!.strokeStyle = '#003319';
+    this.ctx!.lineWidth = 3;
+    this.ctx!.stroke();
   }
 
   private getRandomColor(): string {
