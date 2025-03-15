@@ -10,7 +10,7 @@ export class FirstPage {
   private optionsContainer: HTMLDivElement;
   private currentId: number = 1;
   private optionsList: Options[] = [];
-  private secondPage: SecondPage; 
+  private secondPage: SecondPage;
 
   constructor(secondPage: SecondPage) {
     this.container = document.createElement('div');
@@ -49,8 +49,7 @@ export class FirstPage {
     this.optionsContainer.appendChild(option.option);
 
     this.updateWheel(wheel);
-}
-
+  }
 
   addButton(text: string, id: string) {
     const button: Button = new Button(text, id);
@@ -67,11 +66,14 @@ export class FirstPage {
   }
   updateWheel(wheel: Wheel) {
     const options = this.optionsList
-      .map(option => ({
+      .map((option) => ({
         title: option.getTitle(),
         weight: option.getWeight(),
       }))
-      .filter(option => option.title !== '' && !isNaN(option.weight) && option.weight > 0);
+      .filter(
+        (option) =>
+          option.title !== '' && !isNaN(option.weight) && option.weight > 0
+      );
 
     this.secondPage.updateWheel(options);
   }

@@ -9,10 +9,7 @@ export class AddOptionButton {
   private idNumber: number = 1;
   private firstPage: FirstPage;
 
-  constructor(
-    firstPage: FirstPage,
-    optionsContainer: HTMLElement,
-  ) {
+  constructor(firstPage: FirstPage, optionsContainer: HTMLElement) {
     this.firstPage = firstPage;
     this.optionsContainer = optionsContainer;
   }

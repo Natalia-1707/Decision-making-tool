@@ -15,7 +15,7 @@ import { StartButton } from './components/buttons/start-btn';
 import { Wheel } from './components/second-page-options/wheel';
 
 const secondPage = new SecondPage();
-const firstPage = new FirstPage(secondPage)
+const firstPage = new FirstPage(secondPage);
 document.body.appendChild(secondPage.getContainer());
 setPages(firstPage.getContainer(), secondPage.getContainer());
 const wheel = new Wheel();
@@ -32,7 +32,7 @@ const startButton = firstPage.addButton('Start', 'start-btn');
 
 const addOptionHandler = new AddOptionButton(
   firstPage,
-  firstPage.getOptionsContainer(),
+  firstPage.getOptionsContainer()
 );
 
 addOptionHandler.addEventListenerToButton(addOption, wheel);
