@@ -38,7 +38,9 @@ export class SecondPage {
     this.duration = new Duration();
     this.topButtonsContainer.appendChild(this.duration.getDuration());
 
-    this.playButton = new PlayButton(this.duration);
+    this.wheel = new Wheel();
+
+    this.playButton = new PlayButton(this.duration, this.wheel);
 
     this.pickedOption = new PickedOption();
 
@@ -46,7 +48,6 @@ export class SecondPage {
     this.buttonsContainer.appendChild(this.playButton.getButton());
     this.buttonsContainer.appendChild(this.pickedOption.getPickedOption());
 
-    this.wheel = new Wheel();
     this.container.appendChild(this.wheel.getWheel());
 
     this.container.style.display = 'none';

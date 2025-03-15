@@ -1,7 +1,7 @@
 export class Wheel {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D | null;
-  private options: { title: string; weight: number }[] = [];
+  private options: { title: string; weight: number; color: string }[] = [];
   private spinning = false;
 
   constructor() {
@@ -21,8 +21,46 @@ export class Wheel {
   }
 
   public setOptions(options: { title: string; weight: number }[]): void {
-    this.options = options;
+    this.options = options.map((option) => ({
+      ...option,
+      color: this.getRandomColor(),
+    }));
     this.drawWheel(0);
+  }
+
+  private easeInOut(t: number): number {
+    if (t < 0.5) {
+      return 8 * t * t * t;
+    } else {
+      return 1 - Math.pow(-2 * t + 2, 5) / 2;
+    }
+  }
+
+  public startSpin(duration: number): void {
+    const totalRotation = Math.random() * 360 + 1800;
+    const endAngle = totalRotation * (Math.PI / 180);
+    const startTime = Date.now();
+
+    this.ctx!.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    const spinAnimation = () => {
+      const elapsedTime = Date.now() - startTime;
+      const progress = Math.min(elapsedTime / (duration * 1000), 1);
+      const easedProgress = this.easeInOut(progress);
+
+      const currentAngle = easedProgress * endAngle;
+      this.drawWheel(currentAngle);
+
+      if (progress < 1) {
+        requestAnimationFrame(spinAnimation);
+      } else {
+        this.spinning = false;
+        console.log('Остановилось колесо');
+      }
+    };
+
+    this.spinning = true;
+    spinAnimation();
   }
 
   public drawWheel(angle: number): void {
@@ -41,8 +79,6 @@ export class Wheel {
     ];
     const radius = (this.canvas.width / 2) * 0.9;
 
-    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
     console.log('Рисуем колесо с опциями:', this.options);
 
     ctx.beginPath();
@@ -53,7 +89,7 @@ export class Wheel {
     ctx.lineWidth = 5;
     ctx.stroke();
 
-    this.options.forEach(({ title, weight }) => {
+    this.options.forEach(({ title, weight, color }) => {
       const sliceAngle = (weight / totalWeight) * 2 * Math.PI;
 
       ctx.beginPath();
@@ -65,7 +101,7 @@ export class Wheel {
         currentAngle,
         currentAngle + sliceAngle
       );
-      ctx.fillStyle = this.getRandomColor();
+      ctx.fillStyle = color;
       ctx.fill();
 
       ctx.lineTo(
@@ -120,7 +156,7 @@ export class Wheel {
     this.ctx!.lineTo(cursorX + cursorSize / 2, cursorY);
     this.ctx!.closePath();
 
-    this.ctx!.fillStyle = '#ffffff';
+    this.ctx!.fillStyle = '#ffffcc';
     this.ctx!.fill();
 
     this.ctx!.strokeStyle = '#003319';

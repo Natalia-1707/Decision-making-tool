@@ -8,12 +8,12 @@ export class PlayButton {
   private duration: Duration;
   private wheel: Wheel;
 
-  constructor(duration: Duration) {
+  constructor(duration: Duration, wheel: Wheel) {
     this.button = document.createElement('button');
     this.button.classList.add('buttons-second-page');
     this.button.textContent = 'GO';
     this.duration = duration;
-    this.wheel = new Wheel();
+    this.wheel = wheel;
 
     this.button.addEventListener('click', () => this.startSpin());
   }
@@ -26,5 +26,6 @@ export class PlayButton {
     const duration = this.duration.getDurationValue();
 
     console.log(`Запускаем колесо на ${duration} секунд`);
+    this.wheel.startSpin(duration);
   }
 }

@@ -31,7 +31,7 @@ export class Duration {
 
   getDurationValue(): number {
     const value = this.inputDuration.value;
-    console.log("Полученное значение из поля ввода: ", value);
+    console.log('Полученное значение из поля ввода: ', value);
     return parseInt(value, 10);
   }
 
