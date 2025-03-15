@@ -5,6 +5,7 @@ import './components/header/header-styles.css';
 import './components/buttons/buttons-style.css';
 import './components/options/options-style.css';
 import './components/modal/modal-window-style.css';
+import './components/second-page-options/notification-style.css';
 
 import { setPages, navigateToPage, updatePageView } from './components/routes';
 import { FirstPage } from './components/first-page';

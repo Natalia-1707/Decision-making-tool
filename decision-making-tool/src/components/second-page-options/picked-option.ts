@@ -14,4 +14,8 @@ export class PickedOption {
   getPickedOption(): HTMLElement {
     return this.inputPickedOption;
   }
+
+  public updateText(newText: string): void {
+    this.inputPickedOption.value = newText;
+  }
 }
