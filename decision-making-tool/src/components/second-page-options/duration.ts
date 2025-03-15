@@ -17,8 +17,17 @@ export class Duration {
     this.inputDuration.placeholder = 'sec';
     this.inputDuration.classList.add('input-duration');
 
+    this.inputDuration.value = '10';
+    this.inputDuration.min = '5';
+    this.inputDuration.max = '30';
+
     this.durationDiv.appendChild(this.durationIcon);
     this.durationDiv.appendChild(this.inputDuration);
+  }
+
+  getDurationValue(): number {
+    const value = parseInt(this.inputDuration.value, 10);
+    return isNaN(value) ? 10 : Math.max(5, Math.min(30, value));
   }
 
   getDuration(): HTMLElement {

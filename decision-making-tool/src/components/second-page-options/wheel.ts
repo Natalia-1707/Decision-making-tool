@@ -2,12 +2,13 @@ export class Wheel {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D | null;
   private options: { title: string; weight: number }[] = [];
+  private spinning = false;
 
   constructor() {
     this.canvas = document.createElement('canvas');
     this.canvas.classList.add('wheel-canvas');
-    this.canvas.width = 400;
-    this.canvas.height = 400;
+    this.canvas.width = 500;
+    this.canvas.height = 500;
     this.ctx = this.canvas.getContext('2d');
 
     if (!this.ctx) {
@@ -21,10 +22,10 @@ export class Wheel {
 
   public setOptions(options: { title: string; weight: number }[]): void {
     this.options = options;
-    this.drawWheel();
+    this.drawWheel(0);
   }
 
-  public drawWheel(): void {
+  public drawWheel(angle: number): void {
     if (this.options.length === 0) return;
 
     const ctx = this.ctx!;
@@ -32,12 +33,13 @@ export class Wheel {
       (sum, { weight }) => sum + weight,
       0
     );
-    let currentAngle = 0;
-    const [centerX, centerY, radius] = [
+    let currentAngle = angle;
+
+    const [centerX, centerY] = [
       this.canvas.width / 2,
-      this.canvas.height / 2,
-      this.canvas.width / 2,
+      this.canvas.height / 2 + 10,
     ];
+    const radius = (this.canvas.width / 2) * 0.9;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -47,6 +49,8 @@ export class Wheel {
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.fillStyle = '#f0f0f0';
     ctx.fill();
+    ctx.strokeStyle = '#003319';
+    ctx.lineWidth = 5;
     ctx.stroke();
 
     this.options.forEach(({ title, weight }) => {
@@ -108,7 +112,7 @@ export class Wheel {
   private drawCursor(centerX: number, centerY: number, radius: number): void {
     const cursorSize = 40;
     const cursorX = centerX;
-    const cursorY = centerY - radius - cursorSize / 2;
+    const cursorY = centerY - radius - cursorSize / 1.5;
 
     this.ctx!.beginPath();
     this.ctx!.moveTo(cursorX, cursorY + cursorSize);

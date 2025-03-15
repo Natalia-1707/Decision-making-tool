@@ -67,6 +67,6 @@ export class SecondPage {
   }
   updateWheel(options: { title: string; weight: number }[]): void {
     this.wheel.setOptions(options);
-    this.wheel.drawWheel();
+    this.wheel.drawWheel(0);
   }
 }
