@@ -3,21 +3,31 @@ export class Wheel {
   private ctx: CanvasRenderingContext2D | null;
   private options: { title: string; weight: number; color: string }[] = [];
   private spinning = false;
+  private canvasSize: number;
 
   constructor() {
     this.canvas = document.createElement('canvas');
     this.canvas.classList.add('wheel-canvas');
-    this.canvas.width = 500;
-    this.canvas.height = 500;
+    this.canvasSize = Math.min(window.innerWidth, 500);
+    this.canvas.width = this.canvasSize;
+    this.canvas.height = this.canvasSize;
     this.ctx = this.canvas.getContext('2d');
 
     if (!this.ctx) {
       throw new Error('Не удалось получить контекст канваса');
     }
+    window.addEventListener('resize', this.handleResize.bind(this));
   }
 
   public getWheel(): HTMLCanvasElement {
     return this.canvas;
+  }
+
+  private handleResize(): void {
+    this.canvasSize = Math.min(window.innerWidth, 500);
+    this.canvas.width = this.canvasSize;
+    this.canvas.height = this.canvasSize;
+    this.drawWheel(0);
   }
 
   public setOptions(options: { title: string; weight: number }[]): void {

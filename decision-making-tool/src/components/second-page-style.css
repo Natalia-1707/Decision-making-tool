@@ -153,3 +153,9 @@
   pointer-events: none;
   color: rgb(0 51 25);
 }
+
+@media screen and (width <= 800px) {
+  .buttons-second-page {
+    width: 15%;
+  }
+}

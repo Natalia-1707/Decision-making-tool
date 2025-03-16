@@ -27,7 +27,7 @@ firstPage.addOption(wheel);
 const addOption = firstPage.addButton('Add option', 'add-option-btn');
 firstPage.addButton('Paste list', 'btn2');
 const clearListButton = firstPage.addButton('Clear list', 'clear-list');
-firstPage.addButton('Save list', 'btn4');
+const saveButton = firstPage.addButton('Save list', 'save-list');
 firstPage.addButton('Load list', 'btn5');
 const startButton = firstPage.addButton('Start', 'start-btn');
 

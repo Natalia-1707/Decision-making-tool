@@ -60,3 +60,15 @@
 .modal-cancel-btn:hover {
   font-size: 1.5rem;
 }
+
+@media screen and (width <= 750px) {
+  .modal-cancel-btn {
+    top: 7%;
+  }
+}
+
+@media screen and (width <= 400px) {
+  .modal-cancel-btn {
+    top: 5%;
+  }
+}

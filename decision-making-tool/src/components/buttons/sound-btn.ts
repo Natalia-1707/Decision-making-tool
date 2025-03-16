@@ -45,6 +45,10 @@ export class SoundButton {
     }
   }
 
+  isSoundEnabled(): boolean {
+    return this.isSoundOn;
+  }
+
   getOnButton(): HTMLElement {
     return this.onButton;
   }
