@@ -64,6 +64,10 @@ export class PlayButton {
       this.backButton.getButton().disabled = false;
       this.soundButton.setDisabled(false);
       this.duration.setDisabled(false);
+      if (this.soundButton.isSoundEnabled()) {
+        const audio = new Audio('audio/audio.mp3');
+        audio.play();
+      }
     }, duration * 1000);
   }
 }
