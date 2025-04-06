@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/decision-making-tool/',
   },
   mode: 'development',
   module: {
@@ -32,7 +33,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, 'src/components/audio'), to: 'audio' },
-        { from: 'src/components/favicon', to: 'dist/favicon' }
+        { from: 'src/components/favicon', to: 'dist/favicon' },
       ],
     }),
   ],
