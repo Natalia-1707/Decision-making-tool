@@ -1,14 +1,5 @@
-/*!*****************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
-  \*****************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Allura&family=Jost:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+SA:wght@100..400&family=Reggae+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap);
-/*!*********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css (1) ***!
-  \*********************************************************************/
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css);
-/*!*********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css (2) ***!
-  \*********************************************************************/
 html {
   background-color: rgb(0 51 25);
 }
@@ -21,9 +12,6 @@ body {
   margin: 0;
 }
 
-/*!***************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/first-page-style.css ***!
-  \***************************************************************************************/
 .first-page {
   display: flex;
   flex-direction: column;
@@ -41,9 +29,6 @@ body {
   height: auto;
 }
 
-/*!****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/second-page-style.css ***!
-  \****************************************************************************************/
 .second-page {
   display: flex;
   flex-direction: column;
@@ -206,9 +191,6 @@ body {
   }
 }
 
-/*!*******************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/header/header-styles.css ***!
-  \*******************************************************************************************/
 .header {
   display: flex;
   flex-direction: column;
@@ -222,9 +204,6 @@ body {
   color: rgb(255 255 0);
 }
 
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/buttons/buttons-style.css ***!
-  \********************************************************************************************/
 .buttons {
   width: 80%;
   height: auto;
@@ -252,9 +231,6 @@ body {
   color: rgb(0 51 25);
 }
 
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/options/options-style.css ***!
-  \********************************************************************************************/
 .option-div {
   width: 99%;
   height: auto;
@@ -421,9 +397,6 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
-/*!***********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/modal/modal-window-style.css ***!
-  \***********************************************************************************************/
 .modal-container {
   position: fixed;
   top: 0;
@@ -499,9 +472,6 @@ input[type='number']::-webkit-outer-spin-button {
   }
 }
 
-/*!*************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/second-page-options/notification-style.css ***!
-  \*************************************************************************************************************/
 .notification-window {
   width: 20%;
   height: auto;
