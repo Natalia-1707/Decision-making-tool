@@ -1,15 +1,18 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/decision-making-tool/',
+    publicPath: isProd ? '/Decision-making-tool/' : '/',
   },
-  mode: 'development',
+  mode: isProd ? 'production' : 'development',
   module: {
     rules: [
       {
@@ -33,9 +36,25 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, 'src/components/audio'), to: 'audio' },
-        { from: 'src/components/favicon', to: 'dist/favicon' },
+        { from: 'src/components/favicon', to: 'favicon' },
       ],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      publicPath: isProd ? '/Decision-making-tool/' : '/',
     }),
   ],
   devtool: false,
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
+    open: true,
+    historyApiFallback: true,
+    devMiddleware: {
+      publicPath: '/',
+    },
+  },
 };

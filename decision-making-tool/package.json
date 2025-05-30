@@ -1,5 +1,5 @@
 {
-  "homepage": "https://rolling-scopes-school.github.io/natalia-1707-JSFE2024Q4/decision-making-tool/",
+  "homepage": "https://natalia-1707.github.io/Decision-making-tool/",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
@@ -7,6 +7,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "commitlint": "^17.0.0",
     "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "eslint": "^9.22.0",
     "eslint-plugin-unicorn": "^57.0.0",
@@ -29,7 +30,8 @@
     "lint": "eslint .",
     "stylelint": "stylelint '**/*.css' '**/*.scss' '**/*.sass'",
     "prepare": "husky install",
-    "build": "webpack",
+    "start": "webpack serve --mode development",
+    "build": "cross-env NODE_ENV=production webpack",
     "deploy": "gh-pages -d dist"
   },
   "lint-staged": {

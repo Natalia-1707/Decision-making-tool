@@ -25,10 +25,7 @@ firstPage.addTitle('Decision Making Tool');
 secondPage.addTitle('Decision Making Tool');
 firstPage.addOption(wheel);
 const addOption = firstPage.addButton('Add option', 'add-option-btn');
-firstPage.addButton('Paste list', 'btn2');
 const clearListButton = firstPage.addButton('Clear list', 'clear-list');
-const saveButton = firstPage.addButton('Save list', 'save-list');
-firstPage.addButton('Load list', 'btn5');
 const startButton = firstPage.addButton('Start', 'start-btn');
 
 const addOptionHandler = new AddOptionButton(
